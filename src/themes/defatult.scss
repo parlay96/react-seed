@@ -1,0 +1,11 @@
+html, body, #app, #reactSeed {height: 100%;width: 100%;box-sizing: border-box;margin: 0;padding: 0;}
+body {background-color: #f7f7f7;}
+html,body,div,object,iframe,applet,object,h1,h2,h3,h4,h5,h6,p,blockquote,pre,address,dl,dt,
+dd,ol,ul,li,table,caption,tbody,tfoot, thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,
+footer,header,menu,nav,output,ruby,section,summary,time,mark,audio, video,progress{
+  margin:0;padding:0;border:0;vertical-align:baseline
+}
+em, i{font-style:normal}
+a{text-decoration:none;-webkit-touch-callout:none;background-color:transparent}  li{list-style:none}
+.fl {float: left;}  .fr {float: right;} .clear {clear: both;}
+.beyond {overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
