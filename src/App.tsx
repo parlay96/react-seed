@@ -5,7 +5,6 @@ import "antd/dist/antd.css";
 import './themes/defatult.scss';
 import './themes/common.scss';
 import renderRoutesMap from "./permission/renderRoutesMap";
-import ProviderKeepAlive from "react-keep-alive/es/components/Provider";
 
 interface AppProps { keepAliveData?: any; router: any; }
 @inject(({ storesIndex }) => ({
@@ -19,13 +18,11 @@ export default class App extends Component<AppProps, {}> {
     }
   }
   render () {
-    const { keepAliveData, router } = this.props;
+    const { router } = this.props;
     return (
-      <ProviderKeepAlive include={keepAliveData || []}>
         <Switch>
-          {renderRoutesMap(router)}
+            {renderRoutesMap(router)}
         </Switch>
-      </ProviderKeepAlive>
     )
   }
 }

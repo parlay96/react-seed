@@ -1,5 +1,4 @@
 'use strict'
-// Template version: 1.2.4
 
 const path = require('path')
 const CONTEXT_PATH = '/'
@@ -33,11 +32,6 @@ module.exports = {
     // https://webpack.js.org/configuration/devtool/#development
     // 选择一种 source map 格式来增强调试过程。不同的值会明显影响到构建(build)和重新构建(rebuild)的速度。
     devtool: 'source-map',
-    // If you have problems debugging vue-files in devtools,
-    // set this to false - it *may* help
-    cacheBusting: true,
-    // 是否开启 cssSourceMap  默认为false， 开启浏览器就看不见当前css路径
-    cssSourceMap: false
   },
 
   build: {
@@ -53,16 +47,5 @@ module.exports = {
     productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: false,
-    // Gzip off by default as many popular static hosts such as
-    // Surge or Netlify already gzip all static assets for you.
-    // Before setting to `true`, make sure to:
-    // npm install --save-dev compression-webpack-plugin
-    productionGzip: false,
-    productionGzipExtensions: ['js', 'css'],
-    // Run the build command with an extra argument to
-    // View the bundle analyzer report after build finishes:
-    // `npm run build --report`
-    // Set to `true` or `false` to always turn it on or off
-    bundleAnalyzerReport: process.env.npm_config_report
   }
 }

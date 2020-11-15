@@ -1,12 +1,4 @@
 {
-  "presets": ["env", "stage-0", "react"],
-  "plugins": [
-    "transform-runtime",
-    "transform-decorators-legacy",
-    ["import", {
-      "libraryName": "antd",
-      "libraryDirectory": "es",
-      "style": "css"
-    }]
-  ]
+  "presets": ["@babel/preset-env","@babel/preset-react"],
+  "plugins": ["@babel/plugin-transform-runtime"]
 }

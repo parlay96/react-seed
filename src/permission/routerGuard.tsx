@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { withRouter } from 'react-router-dom'
 import renderRoutesMap from './renderRoutesMap'
-import KeepAlive from "react-keep-alive/es/components/KeepAlive";
 interface RouterGuardProps {
   history: any;
   authorization?: any;
@@ -17,7 +16,7 @@ class RouterGuard extends Component<RouterGuardProps, any> {
   constructor(props: any) {
     super(props)
   }
-  componentWillMount() {
+  componentDidMount() {
     const {history: {replace}, authorization, location} = this.props
     if (authorization) {
       replace('./login')
@@ -26,14 +25,12 @@ class RouterGuard extends Component<RouterGuardProps, any> {
     }
   }
   render() {
-    const {Component, routes = [], keepAiveName } = this.props
+    const {Component, routes = [] } = this.props
     return (
-      <KeepAlive name={ keepAiveName } _container={ keepAiveName }>
         <div id="reactSeed">
-          <Component />
-          {renderRoutesMap(routes)}
+            <Component />
+            {renderRoutesMap(routes)}
         </div>
-      </KeepAlive>
     )
   }
 }

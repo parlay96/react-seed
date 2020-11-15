@@ -1,5 +1,5 @@
 import React from "react";
-import apiUrl from '../../../../apiUrl/index'
+import apiUrl from '../../../apiUrl/index'
 let $http = (React as any).http
 export default {
   Login (parame: any) {
