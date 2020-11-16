@@ -14,6 +14,9 @@ const devWebpackConfig = merge(commonConfig, {
     filename: '[name].js' // 输出文件命名规则
   },
   devtool: config.dev.devtool,
+  optimization: {
+    moduleIds: 'named' // webapck5替代 4中的 new webpack.NamedModulesPlugin(),
+  },
   devServer: {
     hot: true,
     contentBase: false,

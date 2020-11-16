@@ -79,6 +79,7 @@ var webpackConfig = merge(commonConfig, {
       filename: 'index.html',
       template: utils.resolve('public/index.html'),
       inject: true,
+      chunksSortMode: 'auto',
       minify: {
         removeComments: true,//移除注释
         collapseWhitespace: true, //合并多余空格

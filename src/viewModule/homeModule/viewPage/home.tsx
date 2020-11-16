@@ -11,14 +11,31 @@ export default class home extends Component<homeProps, any> {
   constructor(props: any) {
     super(props)
     this.state = {
-      name: '12333'
+      name: '12333',
+      date: new Date()
     }
   }
+  // 组件渲染之后调用，只调用一次。可以在此请求数据
   componentDidMount () {
     services.Login(111).then((data: any) => {
       console.log(data)
     })
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
   }
+  // 组件将要卸载时调用，一些事件监听和定时器需要在此时清除
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
   activateLasers = () => {
     this.props.storesIndex.changeAge(1)
     this.props.storesIndex.SETKEEPALIVEDATA(['user'])
@@ -61,7 +78,8 @@ export default class home extends Component<homeProps, any> {
         <button onClick={this.activateLasers}>点击我</button>
         <NavLink to='/user'>点击去用户页面</NavLink>
         <input/>
-    <p>{this.state.name}</p>
+        <p>{this.state.name}</p>
+        <h2>时间： {this.state.date.toLocaleTimeString()}.</h2>
       </div>
     )
   }

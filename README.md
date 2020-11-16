@@ -1,6 +1,15 @@
 # A React + TypeScript pc seed
+
 > React 17.0.1
+
 > webpack": "^5.4.0
+
+> babel:7
+
+> react-router：5
+
+> typescript: 4.0
+
 > author: penglei
 
 <!-- "webpack": "^5.4.0",
