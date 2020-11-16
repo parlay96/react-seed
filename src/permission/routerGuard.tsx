@@ -27,10 +27,10 @@ class RouterGuard extends Component<RouterGuardProps, any> {
   render() {
     const {Component, routes = [] } = this.props
     return (
-        <div id="reactSeed">
+        <>
             <Component />
             {renderRoutesMap(routes)}
-        </div>
+        </>
     )
   }
 }

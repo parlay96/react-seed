@@ -22,6 +22,9 @@ export default class home extends Component<homeProps, any> {
   activateLasers = () => {
     this.props.storesIndex.changeAge(1)
     this.props.storesIndex.SETKEEPALIVEDATA(['user'])
+    this.setState({
+      name: '哈哈哈哈'
+    })
   }
   render () {
     const dataSource = [{
@@ -58,6 +61,7 @@ export default class home extends Component<homeProps, any> {
         <button onClick={this.activateLasers}>点击我</button>
         <NavLink to='/user'>点击去用户页面</NavLink>
         <input/>
+    <p>{this.state.name}</p>
       </div>
     )
   }

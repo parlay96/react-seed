@@ -3,6 +3,7 @@
 const path = require('path')
 const CONTEXT_PATH = '/'
 module.exports = {
+  projectTitle: 'react app', // 项目的title名
   dev: {
     // Paths
     assetsSubDirectory: 'static', // 复制静态资源到目录中。地址
