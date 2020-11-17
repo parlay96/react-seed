@@ -17,5 +17,10 @@
   "exclude": [
     "node_modules",
     "build"
+  ],
+  "typeRoots": [
+    "node",
+    "node_modules/@types",
+    "./typings"
   ]
 }

@@ -1,13 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
 import services from '../services/index'
 import {NavLink} from "react-router-dom";
 import { inject, observer } from "mobx-react";
 import { Table } from 'antd';
 import '../themes/home.scss'
+import Header from '../component/Header'
+
 interface homeProps { storesIndex: any; userModules: any;}
+interface IS {name: string, date: any}
+
 @inject('storesIndex', 'userModules')
 @observer
-export default class home extends Component<homeProps, any> {
+export default class home extends React.Component<homeProps, IS> {
+  private timerID: any = null
+  static title: string = '哇哈哈哈'
+  readonly name: string | number = 212121
   constructor(props: any) {
     super(props)
     this.state = {
@@ -17,9 +24,12 @@ export default class home extends Component<homeProps, any> {
   }
   // 组件渲染之后调用，只调用一次。可以在此请求数据
   componentDidMount () {
+    console.log('静态属性', home.title) // 静态属性 不可this.title调用
+    console.log('只读属性', this.name) // 只读属性
     services.Login(111).then((data: any) => {
       console.log(data)
     })
+    // this.timerID私有属性
     this.timerID = setInterval(
       () => this.tick(),
       1000
@@ -56,7 +66,7 @@ export default class home extends Component<homeProps, any> {
       address: '西湖区湖底公园1号'
     }];
     const columns = [{
-      title: '姓名',
+      title: 'antd 表格组件',
       dataIndex: 'name',
       key: 'name',
     }, {
@@ -71,15 +81,21 @@ export default class home extends Component<homeProps, any> {
     const { storesIndex, userModules } = this.props;
     return (
       <div className="homeBox">
+        <Header title={'我是头部哦'}/>
         <Table dataSource={dataSource} columns={columns} />
+        <br/>
         <span style={{ color: 'red', fontSize: '40px' }}>我是{storesIndex.name} 今年{storesIndex.age}岁</span>
         <br/>
         {userModules.title}
+        <br/>
         <button onClick={this.activateLasers}>点击我</button>
+        <br/>
         <NavLink to='/user'>点击去用户页面</NavLink>
+        <br/>
         <input/>
+        <br/>
         <p>{this.state.name}</p>
-        <h2>时间： {this.state.date.toLocaleTimeString()}.</h2>
+        <h2>时间： {this.state.date.toLocaleTimeString()}</h2>
       </div>
     )
   }

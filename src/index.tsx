@@ -10,8 +10,8 @@ import reportWebVitals from './reportWebVitals';
 (React as any).http = httpInstance
 
 console.log('author: penglei, 博客站https://www.cnblogs.com/plBlog/， React + TypeScript PC端种子')
-// 该项目种子特别注重规范，引入了eslint代码检测，在写法上一定要规范
-// eslint代码检测，使用它可以避免低级错误和统一代码的风格
+// 该项目种子特别注重规范，引入了tslint代码检测，在写法上一定要规范
+// tslint代码检测，使用它可以避免低级错误和统一代码的风格
 
 ReactDOM.render(
   <Provider {...storeObj}>
@@ -24,7 +24,7 @@ ReactDOM.render(
             5.检测遗留 context API
       */}
       <BrowserRouter>
-          <App router={...routerData}/>
+          <App router={routerData}/>
       </BrowserRouter>
   </Provider>
   , document.getElementById('root')

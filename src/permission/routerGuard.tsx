@@ -2,11 +2,11 @@ import React, {Component} from 'react'
 import { withRouter } from 'react-router-dom'
 import renderRoutesMap from './renderRoutesMap'
 interface RouterGuardProps {
-  history: any;
+  history: { replace: any };
   authorization?: any;
-  location: any;
+  location: { pathname: string };
   Component: any,
-  routes: any,
+  routes: [],
   keepAiveName: any
 }
 /*

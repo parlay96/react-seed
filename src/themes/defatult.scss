@@ -5,7 +5,18 @@ dd,ol,ul,li,table,caption,tbody,tfoot, thead,tr,th,td,article,aside,canvas,detai
 footer,header,menu,nav,output,ruby,section,summary,time,mark,audio, video,progress{
   margin:0;padding:0;border:0;vertical-align:baseline
 }
-em, i{font-style:normal}
+em, i{font-style:normal};img {vertical-align: middle;}
 a{text-decoration:none;-webkit-touch-callout:none;background-color:transparent}  li{list-style:none}
-.fl {float: left;}  .fr {float: right;} .clear {clear: both;}
-.beyond {overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+
+// 禁止复制，选中文本
+.user-select {-moz-user-select: none;-khtml-user-select: none;user-select: none;}
+// 超出3点
+.beyond {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+// 解决文本数字英文换行问题
+.textWord {word-break: break-all;word-wrap: break-word;}
+.fl {float: left;}  .fr {float: right;} .cursorPointer {cursor: pointer}
+.width30 {width: 30%;}  .width70 {width: 70%;}  .width50 {width: 50%;}  .width25 {width: 25%;}  .width75 {width: 75%;}
+.width20 {width: 20%;}  .width80 {width: 80%;}  .width10 {width: 10%;}  .width90 {width: 90%;}  .width40 {width: 40%;}
+.width60 {width: 60%;}  .width100 {width: 100%} .height100 { height: 100%; }
+.displayNone {display: none;}  .overflowHidden {overflow: hidden;}  .displayIb {display: inline-block;}
+.displayBock {display: block;}  .boxSizing {box-sizing: border-box;}  .displayFlex {display: flex;}

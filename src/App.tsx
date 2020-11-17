@@ -6,13 +6,13 @@ import './themes/defatult.scss';
 import './themes/common.scss';
 import renderRoutesMap from "./permission/renderRoutesMap";
 
-interface AppProps { keepAliveData?: any; router: any; }
+interface AppProps { keepAliveData?: []; router: any; }
 @inject(({ storesIndex }) => ({
   keepAliveData: storesIndex.keepAliveData
 }))
 @observer
-export default class App extends Component<AppProps, {}> {
-  constructor(props: any) {
+export default class App extends Component<AppProps> {
+  constructor(props: AppProps) {
     super(props)
     this.state = {
     }
