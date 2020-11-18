@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import {Switch} from "react-router-dom";
 import {inject, observer} from 'mobx-react'
 import "antd/dist/antd.css";
 import './themes/defatult.scss';
 import './themes/common.scss';
-import renderRoutesMap from "./permission/renderRoutesMap";
+import renderRoutes from "./permission/renderRoutes";
 
 interface AppProps { keepAliveData?: []; router: any; }
 @inject(({ storesIndex }) => ({
@@ -20,9 +19,9 @@ export default class App extends Component<AppProps> {
   render () {
     const { router } = this.props;
     return (
-        <Switch>
-            {renderRoutesMap(router)}
-        </Switch>
+        <>
+          {renderRoutes(router)}
+        </>
     )
   }
 }

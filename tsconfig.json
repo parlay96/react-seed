@@ -12,7 +12,11 @@
     "rootDir": "src",
     "sourceMap": true,
     "strict": true,
-    "target": "es5"
+    "target": "es5",
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["src/*"]
+    }
   },
   "exclude": [
     "node_modules",

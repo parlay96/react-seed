@@ -21,6 +21,7 @@ const devWebpackConfig = merge(commonConfig, {
     hot: true,
     contentBase: false,
     publicPath: config.dev.assetsPublicPath,
+    // 非常的关键
     historyApiFallback: {
       rewrites: [{
         from: /./,
@@ -45,7 +46,7 @@ const devWebpackConfig = merge(commonConfig, {
     new HtmlWebpackPlugin({
       templateParameters: {
           PUBLIC_URL: config.dev.assetsSubDirectory,
-          title: config.projectTitle  
+          title: config.projectTitle
       },
       filename: 'index.html',
       template: utils.resolve('public/index.html'),

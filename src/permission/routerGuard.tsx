@@ -28,7 +28,8 @@ class RouterGuard extends Component<RouterGuardProps, any> {
     const {Component, routes = [] } = this.props
     return (
         <>
-            <Component />
+            <Component {...this.props}/>
+            <div>2121</div>
             {renderRoutesMap(routes)}
         </>
     )

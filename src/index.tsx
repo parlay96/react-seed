@@ -4,7 +4,7 @@ import App from './App'
 import {httpInstance} from './config'
 import { routerData, storeObj } from './viewModule' // 引入模快
 import {Provider} from "mobx-react";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 
 (React as any).http = httpInstance
@@ -12,7 +12,7 @@ import reportWebVitals from './reportWebVitals';
 console.log('author: penglei, 博客站https://www.cnblogs.com/plBlog/， React + TypeScript PC端种子')
 // 该项目种子特别注重规范，引入了tslint代码检测，在写法上一定要规范
 // tslint代码检测，使用它可以避免低级错误和统一代码的风格
-
+console.log(routerData)
 ReactDOM.render(
   <Provider {...storeObj}>
       {/*
@@ -23,9 +23,9 @@ ReactDOM.render(
             4.检测意外的副作用
             5.检测遗留 context API
       */}
-      <BrowserRouter>
+      <Router>
           <App router={routerData}/>
-      </BrowserRouter>
+      </Router>
   </Provider>
   , document.getElementById('root')
 )
