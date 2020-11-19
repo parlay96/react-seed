@@ -1,8 +1,10 @@
 import React from 'react'
 import { Route, Redirect, Switch } from 'react-router-dom'
-const renderRoutes = (routes: any, authed?: any, authPath = '/login', extraProps = {}, switchProps = {}) => routes ? (
+
+// 权限路由！拦截器
+const renderRoutes = (routes: any, authPath = '/login', extraProps = {}, switchProps = {}, authed?: any) => routes ? (
     <Switch {...switchProps}>
-    {routes.map((route: any, i: number) => (
+        {routes.map((route: any, i: number) => (
             <Route
                 key={route.key || i}
                 path={route.path}
@@ -15,7 +17,7 @@ const renderRoutes = (routes: any, authed?: any, authPath = '/login', extraProps
                     return <Redirect to={{ pathname: authPath, state: { from: props.location } }} />
                 }}
            />
-     ))}
+         ))}
     </Switch>
   ) : null
 

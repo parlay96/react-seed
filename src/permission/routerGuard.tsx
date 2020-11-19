@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import { withRouter } from 'react-router-dom'
 import renderRoutesMap from './renderRoutesMap'
 interface RouterGuardProps {
-  history: { replace: any };
-  authorization?: any;
-  location: { pathname: string };
+  history: { replace: any }
+  authorization?: any
+  location: { pathname: string }
   Component: any,
   routes: [],
   keepAiveName: any
@@ -29,10 +29,9 @@ class RouterGuard extends Component<RouterGuardProps, any> {
     return (
         <>
             <Component {...this.props}/>
-            <div>2121</div>
             {renderRoutesMap(routes)}
         </>
     )
   }
 }
-export default withRouter(RouterGuard as any);
+export default withRouter(RouterGuard as any)

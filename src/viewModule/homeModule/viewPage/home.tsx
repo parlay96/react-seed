@@ -1,9 +1,8 @@
 import React from 'react'
-import services from '../services/index'
-import {NavLink, Link } from "react-router-dom";
-import { inject, observer } from "mobx-react";
-import renderRoutes from "../../../permission/renderRoutes";
-import { Table } from 'antd';
+import services from '../services'
+import { inject, observer } from 'mobx-react'
+import renderRoutes from '@src/permission/renderRoutes'
+import { Table } from 'antd'
 import '../themes/home.scss'
 import Header from '../component/Header'
 
@@ -13,9 +12,9 @@ interface IS {name: string, date: any}
 @inject('storesIndex', 'userModules')
 @observer
 export default class home extends React.Component<homeProps, IS> {
-  private timerID: any = null
   static title: string = '哇哈哈哈'
   readonly name: string | number = 212121
+  private timerID: any = null
   constructor(props: homeProps) {
     super(props)
     this.state = {
@@ -39,17 +38,20 @@ export default class home extends React.Component<homeProps, IS> {
   }
   // 组件将要卸载时调用，一些事件监听和定时器需要在此时清除
   componentWillUnmount() {
-    clearInterval(this.timerID);
+    clearInterval(this.timerID)
   }
 
   tick() {
     this.setState({
       date: new Date()
-    });
+    })
   }
 
   openSub = () => {
-    console.log(this.props)
+    this.props.history.push('/subInfo')
+  }
+  openuser = () => {
+    this.props.history.push('/user')
   }
 
   activateLasers = () => {
@@ -70,7 +72,7 @@ export default class home extends React.Component<homeProps, IS> {
       name: '胡彦祖',
       age: 42,
       address: '西湖区湖底公园1号'
-    }];
+    }]
     const columns = [{
       title: 'antd 表格组件',
       dataIndex: 'name',
@@ -83,9 +85,8 @@ export default class home extends React.Component<homeProps, IS> {
       title: '住址',
       dataIndex: 'address',
       key: 'address',
-    }];
-    const { storesIndex, userModules, route } = this.props;
-    console.log(route.routes)
+    }]
+    const { storesIndex, userModules, route } = this.props
     return (
       <div className="homeBox">
         <Header title={'我是头部哦'}/>
@@ -101,7 +102,7 @@ export default class home extends React.Component<homeProps, IS> {
         <h2>时间： {this.state.date.toLocaleTimeString()}</h2>
         <button onClick={this.openSub}>点我展开我的子页面</button>
         <p style={{padding: '20px 0'}}>
-          <NavLink to='/user'>点击去用户页面</NavLink>
+          <button onClick={this.openuser}>点击去用户页面</button>
         </p>
         {renderRoutes(route.routes)}
       </div>

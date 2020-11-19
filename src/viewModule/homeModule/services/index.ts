@@ -1,6 +1,6 @@
-import React from "react";
-import apiUrl from '../../../apiUrl/index'
-let $http = (React as any).http
+import {httpInstance} from '@src/config'
+import apiUrl from '@src/apiUrl'
+const $http = httpInstance
 export default {
   Login (parame: any) {
     return $http.get(apiUrl.customerList).then((data: any) => {

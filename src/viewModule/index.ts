@@ -9,8 +9,8 @@ import userModule from './userModule'
 // 合并模快路由
 const routerData = [
     ...routerInit, // 可以理解为公用部分
-    ...homeModule.router,
-    ...userModule.router
+    ...userModule.router,
+    ...homeModule.router
  ]
 // 合并store 对于这个对象的key是，是非常的关键，它将是你应用中去取mobx的东西的模块名！
 const storeObj = {

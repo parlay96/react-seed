@@ -1,9 +1,15 @@
-import {observable, action} from 'mobx';
+import {observable, action} from 'mobx'
 
 class TestStore {
-  @observable name: any;
-  @observable age: any;
-  @observable keepAliveData: any; // 需要缓存的页面的名称
+  @observable name: any
+  @observable age: any
+  @observable keepAliveData: any // 需要缓存的页面的名称
+  // 构造器 初始化数据
+  constructor() {
+    this.name = '彭垒'
+    this.age = 18
+    this.keepAliveData = ['home']
+  }
   @action
   changeAge = (i: any) => {
     this.age = this.age + Number(i)
@@ -12,7 +18,7 @@ class TestStore {
   SETKEEPALIVEDATA = (data: any) => {
     const dataSource = [...this.keepAliveData, ...data]
     const dataSource2 = dataSource.filter(function(element,index,self){
-       return self.indexOf(element) === index;
+       return self.indexOf(element) === index
     })
     this.keepAliveData = [...dataSource2]
   }
@@ -29,12 +35,6 @@ class TestStore {
       })
     }
     this.keepAliveData = JSON.parse(JSON.stringify(kaData))
-  }
-  // 构造器 初始化数据
-  constructor() {
-    this.name = '彭垒'
-    this.age = 18
-    this.keepAliveData = ['home']
   }
 }
 export default new TestStore()

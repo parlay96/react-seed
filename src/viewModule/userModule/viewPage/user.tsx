@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {NavLink} from "react-router-dom";
-import renderRoutes from "../../../permission/renderRoutes";
+import {NavLink} from 'react-router-dom'
+import renderRoutes from '@src/permission/renderRoutes'
 
 interface IP {history: any, route: any}
 
@@ -14,8 +14,9 @@ export default class user extends Component<IP> {
     }
   render() {
     const {route} = this.props
+      console.log(route)
     return (
-      <div className='sty1'>
+      <div className="sty1">
           <p>我是用户页面</p>
           <NavLink to="/">点击去首页页面</NavLink>
           <input/>

@@ -13,6 +13,9 @@
     "sourceMap": true,
     "strict": true,
     "target": "es5",
+    "rootDirs": [
+      "./src"
+    ],
     "baseUrl": "./",
     "paths": {
       "@src/*": ["src/*"]

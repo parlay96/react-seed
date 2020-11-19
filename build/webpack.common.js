@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require('path');
 const utils = require('./utils')
 const config = require('../config')
@@ -11,12 +12,19 @@ module.exports = {
         extensions: [".js", ".ts", ".jsx", ".tsx"],
         alias: {
             "@src": path.join(__dirname, "src")
-        }
+        },
+        plugins: [
+            new TsconfigPathsPlugin({
+                 configFile: utils.resolve('tsconfig.json'),
+                 extensions: [".js", ".ts", ".jsx", ".tsx"]
+            })
+        ],
     },
     module: {
         rules: [
             {
-                test: /\.(js|jsx|ts|tsx)$/,
+                // test: /\.(js|jsx|ts|tsx)$/,
+                test: /\.(j|t)sx?$/,
                 use: ["babel-loader", "ts-loader"],
                 exclude: /node_modules/
             },
