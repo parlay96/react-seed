@@ -24,16 +24,14 @@ export const getStore = (params:any) => {
     if (obj === null) {
       return null
     } else {
-      const data = JSON.parse(obj).content
-      return data
+      return JSON.parse(obj).content
     }
   } else {
     obj = window.localStorage.getItem(name)
     if (obj === null) {
       return null
     } else {
-      const data = JSON.parse(obj).content
-      return data
+      return JSON.parse(obj).content
     }
   }
 }

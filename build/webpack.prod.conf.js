@@ -2,6 +2,7 @@
 const webpack = require('webpack')
 const {merge} = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WebpackBar = require('webpackbar')
 // const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 // const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -65,8 +66,12 @@ var webpackConfig = merge(commonConfig, {
     ]
   },
   // 不参与打包项
-  externals: {},
+  externals: config.build.externals,
   plugins: [
+    new WebpackBar({
+      name: '该种子作者：penglei, 正在打包，请稍等...',
+      color: 'red'
+    }),
     new webpack.DefinePlugin({
       'process.env': require('../config/prod.env'),
       'CONTEXT_PATH': JSON.stringify(config.build.assetsPublicPath)

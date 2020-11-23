@@ -12,7 +12,7 @@ interface IS {name: string, date: any}
 @inject('storesIndex', 'userModules')
 @observer
 export default class home extends React.Component<homeProps, IS> {
-  static title: string = '哇哈哈哈'
+  static title = '哇哈哈哈'
   readonly name: string | number = 212121
   private timerID: any = null
   constructor(props: homeProps) {
@@ -27,7 +27,7 @@ export default class home extends React.Component<homeProps, IS> {
     // console.log(renderRoutes)
     console.log('静态属性', home.title) // 静态属性 不可this.title调用
     console.log('只读属性', this.name) // 只读属性
-    services.Login(111).then((data: any) => {
+    services.Login().then((data: any) => {
       console.log(data)
     })
     // // this.timerID私有属性
@@ -62,7 +62,8 @@ export default class home extends React.Component<homeProps, IS> {
     })
   }
   render () {
-    const dataSource = [{
+    const dataSource = [
+     {
       key: '1',
       name: '胡彦斌',
       age: 32,
@@ -73,7 +74,8 @@ export default class home extends React.Component<homeProps, IS> {
       age: 42,
       address: '西湖区湖底公园1号'
     }]
-    const columns = [{
+    const columns = [
+     {
       title: 'antd 表格组件',
       dataIndex: 'name',
       key: 'name',

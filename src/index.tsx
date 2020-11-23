@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import { routerData, storeObj } from './viewModule' // 引入模快
+import { routerData, storeObj } from './view' // 引入模快
 import {Provider} from 'mobx-react'
 import {BrowserRouter as Router} from 'react-router-dom'
 import reportWebVitals from './reportWebVitals'
@@ -24,7 +24,7 @@ ReactDOM.render(
           <App router={routerData}/>
       </Router>
   </Provider>
-  , document.getElementById('root')
+  , document.getElementById('app')
 )
 
 // 如果你想开始衡量你的应用程序的性能，传递一个函数

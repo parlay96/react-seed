@@ -6,6 +6,18 @@ const path = require('path');
 const utils = require('./utils')
 const config = require('../config')
 
+// 创建eslint规则
+const createLintingRule = () => ({
+    test: /\.(j|t)sx?$/,
+    loader: 'eslint-loader',
+    enforce: 'pre',
+    include: [utils.resolve('src'), utils.resolve('test')],
+    options: {
+        formatter: require('eslint-friendly-formatter'),
+        emitWarning: config.dev.showEslintErrorsInOverlay
+    }
+})
+
 module.exports = {
     entry: path.resolve(__dirname, '../src/index.tsx'),
     resolve: {
@@ -22,6 +34,7 @@ module.exports = {
     },
     module: {
         rules: [
+            ...(config.dev.useEslint ? [createLintingRule()] : []),
             {
                 // test: /\.(js|jsx|ts|tsx)$/,
                 test: /\.(j|t)sx?$/,
@@ -36,6 +49,14 @@ module.exports = {
                     "css-loader",
                     "postcss-loader",
                     "sass-loader",
+                    {
+                        loader: 'sass-resources-loader',
+                        options: {
+                            resources: [
+                                utils.resolve('src/themes/common.scss')
+                            ]
+                        }
+                    }
                 ]
             },
             {
@@ -43,17 +64,28 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, "css-loader"]
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "file-loader",
-                        options: {
-                            limit: 10000,
-                            name: utils.assetsPath('media/[name].[hash].[ext]')
-                        }
-                    }
-                ]
+                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+                loader: 'file-loader',
+                options: {
+                  limit: 10000,
+                  name: utils.assetsPath('media/[name].[hash].[ext]')
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                  limit: 10000,
+                  name: utils.assetsPath('fonts/[name].[hash].[ext]')
+                }
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                  limit: 10000,
+                  name: utils.assetsPath('img/[name].[hash].[ext]')
+                }
             }
         ]
     },

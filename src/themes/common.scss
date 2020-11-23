@@ -1,3 +1,4 @@
 @charset "utf-8";
+// 全局变量，在src文件夹下是没有地方引入的，这个问题在webpack里面引入了
 // 定义变量
-$width: 50px;
+$os-color: #f7f7f7; // 主题颜色

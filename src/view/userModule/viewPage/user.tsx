@@ -5,7 +5,7 @@ import renderRoutes from '@src/permission/renderRoutes'
 interface IP {history: any, route: any}
 
 export default class user extends Component<IP> {
-  constructor(props: IP, context: any) {
+  constructor(props: IP) {
     super(props)
     this.state = {}
   }

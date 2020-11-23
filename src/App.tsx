@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {inject, observer} from 'mobx-react'
 import 'antd/dist/antd.css'
 import './themes/defatult.scss'
-import './themes/common.scss'
 import renderRoutes from '@src/permission/renderRoutes'
 // import { Route, Link, Switch } from 'react-router-dom'
 

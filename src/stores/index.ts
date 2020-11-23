@@ -26,8 +26,7 @@ class TestStore {
   REMOVEKEEPALIVEDATA (data: any) {
     let kaData = JSON.parse(JSON.stringify(this.keepAliveData))
     const Fun = (arr: any, val: any) => {
-      const dataFilter = arr.filter((item: any) => item !== val)
-      return dataFilter
+      return arr.filter((item: any) => item !== val)
     }
     if (data.length > 0) {
       data.forEach((it: any) => {

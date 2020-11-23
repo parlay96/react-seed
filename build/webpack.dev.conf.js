@@ -57,6 +57,7 @@ const devWebpackConfig = merge(commonConfig, {
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
+  console.log(portfinder.basePort)
   // 使用portfinder查找可用的端口
   portfinder.getPort((err, port) => {
     if (err) {
