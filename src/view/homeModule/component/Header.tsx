@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import { inject, observer } from 'mobx-react'
 
-interface IP {title: string}
+interface IP {title: string, accountModule?: any}
 
 // hooks
-export default function Header (props: IP) {
+ function Header (props: IP) {
+    const history = useHistory()
     // 声明一个叫 "count" 的 state 变量
     // setbgColor就是去改变bgColor的值, 不可以直接bgColor=“red” // 是没效果的
     const [bgColor, setbgColor] = useState('#fff')
@@ -11,12 +14,11 @@ export default function Header (props: IP) {
 
     const list: number[] = []
     const [countNums, setcountNums] = useState(list)
-
     // 枚举
     enum Color {num=1, num2, num3}
 
     // 接收父组件的传值
-    const { title } = props
+    const { title, accountModule } = props
 
     const bgColorChange = () => {
         // 改变基本数据类型
@@ -31,6 +33,13 @@ export default function Header (props: IP) {
         // setcountNums(countNums)
         // 改变数组推荐这样处理
         setcountNums([...countNums])
+    }
+    // 退出系统
+    const outLogin = () => {
+        // 清除token
+        accountModule.REMOVETOKEN()
+        // 去登录页面
+        history.push('/login')
     }
     // 副作用钩子
     useEffect(() => {
@@ -50,6 +59,9 @@ export default function Header (props: IP) {
                 })
             }
             <button onClick={bgColorChange}>点我改变头部背景色</button>
+            <button onClick={outLogin}>退出系统</button>
         </div>
     )
 }
+
+export default inject('accountModule')(observer(Header));

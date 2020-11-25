@@ -23,6 +23,7 @@ module.exports =  {
         "@typescript-eslint/no-explicit-any": ["off"], // 不允许使用任何类型
         "@typescript-eslint/explicit-module-boundary-types": ["off"], // 不允许函数不返回值
         "@typescript-eslint/no-unused-vars": ["off"], // 不允许未定义的变量
+        "@typescript-eslint/no-empty-function": ["off"],
     },
     settings:  {
         react:  {

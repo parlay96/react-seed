@@ -5,10 +5,11 @@ import storesIndex from '../stores' // 全局基础store，可以理解为公用
 // 它们应该只有业务上的往来，没有代码上的往来,这样方便维护。
 import homeModule from './homeModule'
 import userModule from './userModule'
-
+import accountModule from './accountModule'
 // 合并模快路由
 const routerData = [
     ...routerInit, // 可以理解为公用部分
+    ...accountModule.router,
     ...userModule.router,
     ...homeModule.router
  ]
@@ -16,7 +17,8 @@ const routerData = [
 const storeObj = {
   storesIndex: storesIndex, // 可以理解为公用部分
   homeModules: homeModule.store,
-  userModules: userModule.store
+  userModules: userModule.store,
+  accountModule: accountModule.store
 }
 
 // console.log('整个项目的路由信息: ', routerData)

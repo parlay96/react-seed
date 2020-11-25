@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import {inject, observer} from 'mobx-react'
 import 'antd/dist/antd.css'
 import './themes/defatult.scss'
-import renderRoutes from '@src/permission/renderRoutes'
+import RenderRoutes from '@src/permission/renderRoutes'
 // import { Route, Link, Switch } from 'react-router-dom'
 
 interface AppProps { keepAliveData?: []; router: any }
-@inject(({ storesIndex }) => ({
+@inject(({ storesIndex }: any) => ({
   keepAliveData: storesIndex.keepAliveData
 }))
 @observer
@@ -20,7 +20,7 @@ export default class App extends Component<AppProps> {
     const { router } = this.props
     return (
         <>
-          {renderRoutes(router)}
+          <RenderRoutes routes={router}/>
 
           {/*下面属于写个路由的demo*/}
 

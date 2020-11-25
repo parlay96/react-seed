@@ -1,7 +1,7 @@
 import React from 'react'
 import services from '../services'
 import { inject, observer } from 'mobx-react'
-import renderRoutes from '@src/permission/renderRoutes'
+import RenderRoutes from '@src/permission/renderRoutes'
 import { Table } from 'antd'
 import '../themes/home.scss'
 import Header from '../component/Header'
@@ -56,7 +56,6 @@ export default class home extends React.Component<homeProps, IS> {
 
   activateLasers = () => {
     this.props.storesIndex.changeAge(1)
-    this.props.storesIndex.SETKEEPALIVEDATA(['user'])
     this.setState({
       name: '哈哈哈哈'
     })
@@ -106,7 +105,7 @@ export default class home extends React.Component<homeProps, IS> {
         <p style={{padding: '20px 0'}}>
           <button onClick={this.openuser}>点击去用户页面</button>
         </p>
-        {renderRoutes(route.routes)}
+        <RenderRoutes routes={route.routes}/>
       </div>
     )
   }

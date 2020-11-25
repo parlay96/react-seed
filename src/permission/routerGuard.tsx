@@ -10,7 +10,7 @@ interface RouterGuardProps {
   keepAiveName: any
 }
 /*
-   权限设置 路由拦截
+   权限设置 路由拦截 没有使用这样的方式了，在新种子中，更加结合router官方做法
  */
 class RouterGuard extends Component<RouterGuardProps, any> {
   constructor(props: any) {
