@@ -5,13 +5,14 @@ import RenderRoutes from '@src/permission/renderRoutes'
 import { Table } from 'antd'
 import '../themes/home.scss'
 import Header from '../component/Header'
+import {Test} from '../component/Test';
 
 interface homeProps { storesIndex: any; userModules: any; history: any, route: any}
 interface IS {name: string, date: any}
 
 @inject('storesIndex', 'userModules')
 @observer
-export default class home extends React.Component<homeProps, IS> {
+export default class Home extends React.Component<homeProps, IS> {
   static title = '哇哈哈哈'
   readonly name: string | number = 212121
   private timerID: any = null
@@ -25,7 +26,7 @@ export default class home extends React.Component<homeProps, IS> {
   // 组件渲染之后调用，只调用一次。可以在此请求数据
   componentDidMount () {
     // console.log(renderRoutes)
-    console.log('静态属性', home.title) // 静态属性 不可this.title调用
+    console.log('静态属性', Home.title) // 静态属性 不可this.title调用
     console.log('只读属性', this.name) // 只读属性
     services.Login().then((data: any) => {
       console.log(data)
@@ -91,6 +92,7 @@ export default class home extends React.Component<homeProps, IS> {
     return (
       <div className="homeBox">
         <Header title={'我是头部哦'}/>
+        <Test />
         <Table dataSource={dataSource} columns={columns} />
         <br/>
         <span style={{ color: 'red', fontSize: '40px' }}>我是{storesIndex.name} 今年{storesIndex.age}岁</span>

@@ -24,6 +24,15 @@ module.exports =  {
         "@typescript-eslint/explicit-module-boundary-types": ["off"], // 不允许函数不返回值
         "@typescript-eslint/no-unused-vars": ["off"], // 不允许未定义的变量
         "@typescript-eslint/no-empty-function": ["off"],
+        "@typescript-eslint/ban-types": [
+            "error",
+            {
+                "extendDefaults": true,
+                "types": {
+                    "{}": false
+                }
+            }
+        ]
     },
     settings:  {
         react:  {

@@ -78,8 +78,8 @@ var webpackConfig = merge(commonConfig, {
     }),
     new HtmlWebpackPlugin({
       templateParameters: {
-        PUBLIC_URL: config.dev.assetsSubDirectory,
-        title: config.projectTitle  
+        PUBLIC_URL: config.build.assetsSubDirectory,
+        title: config.projectTitle
       },
       filename: 'index.html',
       template: utils.resolve('public/index.html'),

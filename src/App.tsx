@@ -5,7 +5,13 @@ import './themes/defatult.scss'
 import RenderRoutes from '@src/permission/renderRoutes'
 // import { Route, Link, Switch } from 'react-router-dom'
 
-interface AppProps { keepAliveData?: []; router: any }
+type RoterItem = {
+    path: string,
+    component: any,
+    exact?: boolean,
+    key?: string,
+}
+interface AppProps { keepAliveData?: []; router: RoterItem[] }
 @inject(({ storesIndex }: any) => ({
   keepAliveData: storesIndex.keepAliveData
 }))
