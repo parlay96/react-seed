@@ -14,7 +14,7 @@
   "dependencies": {
     "ahooks": "^2.9.6",
     "antd": "^4.8.2",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "mobx": "^6.0.4",
     "mobx-react": "^7.0.5",
     "react": "^17.0.1",
