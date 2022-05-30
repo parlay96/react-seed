@@ -1,53 +1,18 @@
-'use strict'
-
-const path = require('path')
-const CONTEXT_PATH = '/'
+/*
+ * @Author: penglei
+ * @Date: 2022-05-26 00:09:33
+ * @LastEditors: pl
+ * @LastEditTime: 2022-05-28 16:58:23
+ * @Description: 关于环境的配置
+ */
 module.exports = {
-  projectTitle: 'react app', // 项目的title名
-  // 开发环境
-  dev: {
-    // Paths
-    assetsSubDirectory: 'static', // 复制静态资源到目录中。地址
-    assetsPublicPath: CONTEXT_PATH, // 项目发布路径，必须以 '/'结尾
-    proxyTable: {
-      "/reactSeed": {
-        target: "http://192.168.0.161:8765",
-        pathRewrite: {
-          "^/reactSeed": ""
-        }
-      }
-    }, // devServer反向代理列表
-
-    // 各种开发服务器设置
-    host: 'localhost', // can be overwritten by process.env.HOST // 你也可以用 你电脑的IP
-    port: 80, // 可以被process.env覆盖。端口，如果端口正在使用，将确定一个空闲端口
-
-    errorOverlay: true, // 当出现编译器错误或警告时，在浏览器中显示全屏覆盖。默认情况下禁用。如果你只想显示编译错误: true
-    notifyOnErrors: true, // 启动dev 跑项目时，是否显示错误信息
-
-    // 使用Eslint?
-    useEslint: true,
-    showEslintErrorsInOverlay: true,
-
-    // https://webpack.js.org/configuration/devtool/#development
-    // 选择一种 source map 格式来增强调试过程。不同的值会明显影响到构建(build)和重新构建(rebuild)的速度。
-    devtool: 'source-map',
-  },
-  // 发布环境
   build: {
-    // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
-    // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: CONTEXT_PATH,
-    /**
-     * Source Maps
-     */
-    productionSourceMap: false,
-    // https://webpack.js.org/configuration/devtool/#production
-    devtool: false,
-    // 不参与打包配置
-    externals: {}
-  }
+    assetsSubDirectory: 'static', // 复制静态资源到目录中。地址
+  },
+  dev: {
+    host: 'localhost', // can be overwritten by process.env.HOST
+    port: 3000, // 开发环境的端口
+    assetsSubDirectory: 'static', // 复制静态资源到目录中。地址
+    proxy: {}, // 反向代理
+  },
 }

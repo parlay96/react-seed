@@ -1,5 +1,8 @@
-/build/
-/config/
-/dist/
-/typings/
-/*.js
+node_modules/
+**/node_modules/
+dist/
+.build/
+
+# npm lock files
+package-lock.json
+yarn.lock

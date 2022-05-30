@@ -1,0 +1,273 @@
+@import "./default.scss";
+// @import "~antd/dist/antd.css";
+// @import "../icon/iconfont.css";
+
+/** 上面是全局的样式，组件库样式，等等的引入地 （default文件是一些公用的样式）*/
+
+/** 下面全是初始化样式，基本不怎么改变 */
+/** 参考阿里云默认字体配置 */
+body {
+  font-family: pingfang SC, helvetica neue, arial,hiragino sans gb,microsoft yahei ui, microsoft yahei, simsun, sans-serif !important;
+}
+
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+input,
+p,
+blockquote,
+th,
+td,
+div {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-family: helvetica neue, Tahoma, Arial, sans-serif;
+  // user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/** 除webkit内核其他浏览器滚动条样式 */
+html,
+body,
+div,
+textarea,
+ul,
+li,
+table,
+form {
+  scrollbar-width: thin;
+}
+
+body {
+  color: #666;
+  font-size: 14px;
+  background-color: $bg-color;
+  min-width: 1200px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#App {
+  width: 100%;
+  height: 100%;
+  //  overflow-x: hidden;
+}
+// 修改滚动条样式
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0); /*其他样式，比如圆角等*/
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+// 修改antd select滚动条样式
+.rc-virtual-list-scrollbar {
+  width: 3px !important;
+}
+.rc-virtual-list-scrollbar-thumb {
+  -webkit-border-radius: 2px !important;
+  border-radius: 2px !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+select {
+  font-size: 12px;
+}
+table {
+  border-collapse: collapse;
+}
+fieldset,
+img {
+  border: 0 none;
+}
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+fieldset p {
+  margin: 0;
+  padding: 0 0 0 8px;
+}
+legend {
+  display: none;
+}
+address,
+caption,
+em,
+strong,
+th,
+i {
+  font-weight: 400;
+  font-style: normal;
+}
+table caption {
+  margin-left: -1px;
+}
+button {
+  cursor: pointer;
+}
+hr {
+  clear: both;
+  height: 2px;
+  margin: 5px 0;
+  overflow: hidden;
+  border-width: 1px 0;
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #fff;
+}
+ol,
+ul {
+  list-style-position: outside;
+  list-style-type: none;
+  list-style-image: none;
+}
+li {
+  list-style: none;
+}
+caption,
+th {
+  text-align: left;
+}
+q::before,
+q::after,
+blockquote::before,
+blockquote::after {
+  content: ””;
+}
+#root {
+  height: 100%;
+}
+input,
+textarea {
+  border: none;
+  outline: 0;
+  &::-webkit-input-placeholder {
+    color: $text-third-color;
+  }
+  &:-moz-placeholder {
+    color: $text-third-color;
+  }
+  &:-ms-input-placeholder {
+    color: $text-third-color;
+  }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+  }
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+input:-internal-autofill-selected {
+  background: none !important;
+}
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background: $primary-color !important;
+  color: #ffffff;
+}
+.ant-input-disabled {
+  background-color: #ffffff !important;
+  color: $text-color !important;
+}
+.ant-modal-header {
+  height: 44px;
+  background: $primary-color;
+  border-radius: 2px 2px 0px 0px;
+  border: none;
+  padding: 0 16px;
+  line-height: 44px;
+  color: #ffffff;
+}
+.ant-modal-title {
+  color: #ffffff;
+  line-height: inherit;
+}
+.ant-modal-close-x {
+  height: 44px;
+  line-height: 44px;
+  color: #ffffff;
+}
+.ant-modal-footer {
+  padding: 16px;
+}
+/** 下拉选择框hover */
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background-color: #f0f8ff;
+}
+/** 下拉选择框箭头 */
+.ant-select-arrow {
+  right: 25px;
+  font-family: "yp-pc" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  color: $text-color;
+  width: 16px;
+  height: 16px;
+  bottom: 50%;
+  margin: auto;
+}
+.ant-select-arrow::after {
+  content: "\e64c";
+}
+.ant-select-arrow span {
+  display: none;
+}
+/** 下拉选择框 input框边框颜色 */
+.ant-select:not(.ant-select-customize-input) .ant-select-selector,
+.ant-input {
+  @include line;
+}
+/** antd input输入框鼠标移入 */
+.ant-input:focus,
+.ant-input:hover {
+  box-shadow: none;
+  border-color: $primary-color;
+  border-right-width: 1px;
+}
+/** 文本域禁止拉伸 */
+textarea {
+  resize: none;
+}
+/** select框取消边框阴影 */
+.ant-select-selector {
+  box-shadow: none !important;
+}
+/** antd button按钮取消边框、字体阴影 */
+.ant-btn-primary,
+.ant-btn {
+  text-shadow: none;
+  box-shadow: none;
+}
+.yp-member-container {
+  background-color: $bg-color;
+  @include flex-r-sb;
+  padding-top: 16px;
+  padding-bottom: 34px;
+}

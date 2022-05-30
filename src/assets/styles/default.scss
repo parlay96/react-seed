@@ -1,0 +1,116 @@
+// @font-face {
+//   font-family: PingFangSC-Regular;
+//   src: url(https://staticscdn.zgzpsjz.com/pc/images/lzy/PingFang-Regular.ttf);
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: PingFang-Medium;
+//   src: url(https://staticscdn.zgzpsjz.com/pc/images/lzy/PingFang-Medium.ttf);
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+/** 清除浮动 */
+.clearfix::after {
+  display: block;
+  clear: both;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  content: "";
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+/** 隐藏元素 */
+.hide {
+  display: none;
+}
+
+.opacity {
+  opacity: 0;
+}
+
+/** 列表页没有更多数据 */
+.list-data-notmore {
+  position: relative;
+  color: #7f7e7e;
+  font-size: 28px;
+  line-height: 70px;
+  text-align: center;
+}
+
+/** 统计字数组件样式 */
+.words-total-box {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  color: #333;
+  font-size: 26px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.ml-24 {
+  margin-left: 24px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
+}
+
+.mb-none {
+  margin-bottom: 0;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.text-warn {
+  color: $warn-color;
+}
+
+.touch-feed-back {
+  opacity: 0.6;
+}
+
+.touch-feed-back-disabled {
+  opacity: 0.6;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+.edition-center-container{
+  width: $base-width;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.unselectable {
+  -moz-user-select: none; /*火狐*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -ms-user-select: none; /*IE10*/
+  -khtml-user-select: none; /*早期浏览器*/
+  user-select: none;
+}
+
+.amap-icon img {
+  width: 44px;
+}

@@ -1,33 +1,34 @@
-// https://www.tslang.cn/docs/handbook/compiler-options.html
 {
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    "lib": ["es6", "dom"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "allowJs": true,
-    "rootDir": "src",
-    "sourceMap": true,
-    "strict": true,
-    "target": "es5",
-    "rootDirs": [
-      "./src"
-    ],
-    "baseUrl": "./",
-    "paths": {
-      "@src/*": ["src/*"]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "resolveJsonModule": true,
+        "baseUrl": "./",
+        "outDir": "./dist/electron",
+        "sourceMap": true,
+        "declaration": false,
+        "module": "es2015",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es5",
+        "jsx": "react",
+        "paths": {
+            "@config/*": [
+                "config/*"
+            ],
+            "@/*":[
+                "src/*"
+            ]
+        },
+        "typeRoots": [
+            "node_modules/@types",
+            "types/*"
+        ],
+        "lib": [
+            "es2018",
+            "dom"
+        ]
     }
-  },
-  "exclude": [
-    "node_modules",
-    "build"
-  ],
-  "typeRoots": [
-    "node",
-    "node_modules/@types",
-    "./typings"
-  ]
 }

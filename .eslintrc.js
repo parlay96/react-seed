@@ -1,42 +1,51 @@
-// https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#usage
-// https://eslint.bootcss.com/docs/rules/
-module.exports =  {
-    parser:  '@typescript-eslint/parser',  // 指定ESLint解析器
-    extends:  [
-        'plugin:react/recommended',  // 使用来自 @eslint-plugin-react 的推荐规则
-        'plugin:@typescript-eslint/recommended',  // 使用来自@typescript-eslint/eslint-plugin的推荐规则
-        'prettier/@typescript-eslint',  // 使用 ESLint -config-prettier 禁用来自@typescript-eslint/ ESLint 与 prettier 冲突的 ESLint 规则
-        // 'plugin:prettier/recommended',
-    ],
-    parserOptions:  {
-        ecmaVersion:  2018,  // 允许解析最新的 ECMAScript 特性
-        sourceType:  'module',  // 允许使用 import
-        ecmaFeatures:  {
-            jsx:  true,  // 允许对JSX进行解析
-        },
-    },
-    rules:  {
-        "no-extra-semi": 0, // 禁止不必要的分号
-        "quotes": ['error', 'single'], // 强制使用单引号
-        "no-unused-vars": 'off', // 不允许未定义的变量
-        'semi': [0],
-        "@typescript-eslint/no-explicit-any": ["off"], // 不允许使用任何类型
-        "@typescript-eslint/explicit-module-boundary-types": ["off"], // 不允许函数不返回值
-        "@typescript-eslint/no-unused-vars": ["off"], // 不允许未定义的变量
-        "@typescript-eslint/no-empty-function": ["off"],
-        "@typescript-eslint/ban-types": [
-            "error",
-            {
-                "extendDefaults": true,
-                "types": {
-                    "{}": false
-                }
-            }
-        ]
-    },
-    settings:  {
-        react:  {
-            version:  'detect',  // 告诉 eslint-plugin-react 自动检测 React 的版本
-        },
-    },
-};
+/*
+ * @Author: penglei
+ * @Date: 2022-05-26 10:31:08
+ * @LastEditors: penglei
+ * @LastEditTime: 2022-05-26 10:39:55
+ * @Description: 
+ */
+
+module.exports = {
+  env: {
+    es6: true,
+    node: true,
+    browser: true,
+  },
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  parserOptions: {
+    ecmaVersion: 7,
+    sourceType: 'module',
+  },
+  rules: {
+    'no-console': 'off',
+    'no-debugger': 'off',
+    "key-spacing": 0,
+    "comma-dangle": 0,
+    "no-unused-vars": 0,
+    "spaced-comment": 0,
+    "comma-spacing": 0,
+    "keyword-spacing": 0,
+    "space-before-blocks": 0,
+    "space-infix-ops": 0,
+    "radix": 0,
+    "no-extend-native": 0,
+    "no-useless-catch": 0,
+    "brace-style": 0,
+    "indent": ["error", 2], //缩进风格
+    semi: ['error', 'never'], // 禁止分号
+    "no-extra-parens": 1, // 非必要的括号
+    "no-empty": 1, // 块语句中的内容不能为空
+    "eqeqeq": 0, // 必须使用全等
+    "one-var": 0, // 连续声明
+    "no-undef": 0, // 可以 有未定义的变量
+    "space-before-function-paren": 1,  // 函数定义时括号前面要不要有空格
+    "no-restricted-globals": ["error", "event", "fdescribe"],
+    "no-return-assign": "off",
+    "no-inner-declarations": [1, "functions"],
+    "no-multi-spaces": 0, // 连续多个不用于缩进的空格通常是错误
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxBOF": 1 }]
+  },
+}
