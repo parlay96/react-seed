@@ -3,10 +3,10 @@
     "compilerOptions": {
         "resolveJsonModule": true,
         "baseUrl": "./",
-        "outDir": "./dist/electron",
+        "outDir": "./dist",
         "sourceMap": true,
         "declaration": false,
-        "module": "es2015",
+        "module": "es2020",
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "emitDecoratorMetadata": true,
@@ -15,9 +15,6 @@
         "target": "es5",
         "jsx": "react",
         "paths": {
-            "@config/*": [
-                "config/*"
-            ],
             "@/*":[
                 "src/*"
             ]

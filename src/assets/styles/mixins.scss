@@ -1,4 +1,4 @@
-/** 
+/**
 * 这里的文件不需要引入，全局webpack引入了，这里是放全局变量，方法的地方
 */
 
@@ -228,15 +228,15 @@
 /** 默认placeholder颜色 */
 @mixin placeholder($color: $text-fourth-color) {
   &::-webkit-input-placeholder {
-    color: $color;
+    color: $color !important;
   }
   &::-moz-placeholder {
     /* Mozilla Firefox 19+ */
-    color: $color;
+    color: $color !important;
   }
   &::-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: $color;
+    color: $color !important;
   }
 }
 
@@ -265,4 +265,10 @@
   height: 6px;
   background-color: $primary-color;
   margin: $margin;
+}
+/** antd按钮基本样式 */
+@mixin antdBtn($color: '#5290FD') {
+  height: 36px;
+  background: $color;
+  border-radius: 6px;
 }

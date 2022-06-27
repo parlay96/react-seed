@@ -1,0 +1,89 @@
+
+.menuLayout {
+  width: 100%;
+  height: 100%;
+  :global {
+    .ant-menu {
+      font-size: 14px;
+      color: #171A1D;
+      width: 100%;
+      height: 100%;
+    }
+    .ant-menu-root {
+      padding-top: 16px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    // 点击时颜色改为透明
+    .ant-menu-item:active, .ant-menu-submenu-title:active {
+      background-color: transparent;
+    }
+    // 如果存在子节点。就把submenu盒子设置距离上面的距离
+    .ant-menu-submenu {
+      margin-top: 4px;
+    }
+    // 子节点的ul背景色
+    .ant-menu-sub.ant-menu-inline {
+      background-color: white;
+    }
+    // 子节点的父节点title的样式
+    .ant-menu-submenu-title {
+      height: 38px !important;
+      line-height: 38px !important;
+      padding: 0 20px !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    // 子节点的样式
+    .ant-menu-item {
+      height: 38px !important;
+      line-height: 38px !important;
+      padding: 0 20px !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .ant-layout-sider {
+      background-color: white;
+    }
+    .ant-menu-inline .ant-menu-item::after {
+      display: none;
+    }
+    .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+      background: rgba(82, 144, 253, 0.1) !important;
+    }
+    // 选中的颜色
+    .ant-menu-item-selected {
+      color: rgba(82, 144, 253, 0.8) !important;
+    }
+    // 标题选中时颜色
+    .ant-menu-submenu-selected {
+      color: #171A1D;
+    }
+    // 如果存在子节点， 那么距离下一个item的距离
+    .ant-menu-sub {
+       padding-bottom: 5px;
+    }
+  }
+}
+.childrenLayout {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.expandIcon {
+  color: #171A1D !important;
+  opacity: 0.8;
+  transform: scale(0.8);
+}
+
+.hideExpandIcon {
+  transform: rotateZ(-180deg) scale(0.8) !important;
+}
+
+.siteLayout {
+  border-right: 1px solid rgba(126, 134, 142, 0.16);
+}
+
+.lineTop {
+  border-top: 1px solid rgba(126, 134, 142, 0.16);
+}

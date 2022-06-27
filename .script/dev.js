@@ -3,12 +3,9 @@
  * @Author: penglei
  * @Date: 2022-05-25 20:47:23
  * @LastEditors: pl
- * @LastEditTime: 2022-05-30 17:46:24
+ * @LastEditTime: 2022-05-31 14:49:09
  * @Description: 本地运行脚本
  */
-
-// 当前环境
-process.env.NODE_ENV = 'development'
 
 const chalk = require('chalk')
 const webpack = require('webpack')
@@ -40,7 +37,6 @@ const devServerOptions = {
 // 执行渲染进程
 function startRenderer() {
   return new Promise((resolve, reject) => {
-    rendererConfig.mode = 'development'
     portFinder.basePort = config.dev.port
     // 获取一个可用的端口
     portFinder.getPort((err, port) => {
@@ -49,7 +45,7 @@ function startRenderer() {
       } else {
         rendererConfig.plugins.push(new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
-            messages: [`Your application is running here: http://localhost:${port}`]
+            messages: [`Your application is running here: http://${config.dev.host}:${port}`]
           },
           onErrors: undefined
         }))
@@ -63,8 +59,9 @@ function startRenderer() {
         // 挂载端口,开发环境很重要
         process.env.PORT = port
         // 启动服务
-        server.start().then(() => {
+        server.startCallback(() => {
           resolve()
+          console.log('\n' + chalk.blue(`Your application is running here: http://${config.dev.host}:${port}`) + '\n')
         })
       }
     })
@@ -72,7 +69,7 @@ function startRenderer() {
 }
 
 async function init() {
-  console.log(chalk.blue.bgRed(` 准备编译...`))
+  console.log(chalk.bgRed(` 准备编译...`))
   try {
     await startRenderer()
   } catch (error) {

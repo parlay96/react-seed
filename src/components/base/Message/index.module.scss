@@ -1,0 +1,49 @@
+.ypMessage {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-variant: tabular-nums;
+    list-style: none;
+    position: fixed;
+    top: 350px;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    pointer-events: none;
+    &-notice {
+        padding: 8px;
+        text-align: center;
+        &-content {
+            display: inline-block;
+            padding: 10px 16px;
+            font-size: 14px;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+            pointer-events: all;
+            .typeIcon {
+              position: relative;
+              top: 1px;
+              margin-right: 8px;
+            }
+        }
+    }
+    /** 动画 */
+    &-enter {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    &-enter-active {
+      opacity: 1;
+      transform: translate(0);
+      transition: transform 200ms ease-out, opacity 200ms ease-in-out;
+    }
+    &-exit {
+      opacity: 1;
+    }
+    &-exit-active {
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: transform 300ms linear 100ms, opacity 200ms ease-in-out;
+    }
+}

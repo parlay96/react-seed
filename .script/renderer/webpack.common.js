@@ -1,8 +1,8 @@
 /*
  * @Author: penglei
  * @Date: 2022-05-25 20:47:23
- * @LastEditors: pl
- * @LastEditTime: 2022-05-30 17:52:04
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-06-21 11:03:49
  * @Description: 渲染进程配置
  */
 const webpack = require('webpack')
@@ -18,16 +18,14 @@ let rendererConfig = {
   entry: {
     renderer: utils.resolve('src/index.tsx')
   },
-  output: {
-    path: utils.resolve('/dist/web'), //输出文件夹
-    filename: utils.assetsPath('js/[name].[chunkhash:8].js'),//输出文件命名规则
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash:8].js'), // 此选项决定了非初始（non-initial）chunk 文件的名称。
-  },
   resolve: {
     alias: {
       '@': utils.resolve('src'),
     },
     extensions: ['.tsx', ".js", '.ts', '.json', '.scss', '.css']
+  },
+  optimization: {
+    runtimeChunk: process.env.DEV_MODE == 'single' ? 'single' : 'multiple'
   },
   externals: [],
   module: {
@@ -37,25 +35,25 @@ let rendererConfig = {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         type: "asset/resource",
         generator: {
-          filename: 'imgs/[name]--[hash].[ext]'
+          filename: utils.assetsPath('imgs/[name]--[hash].[ext]')
         }
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         type: "asset/resource",
         generator: {
-          filename: 'media/[name]--[hash].[ext]'
+          filename: utils.assetsPath('media/[name]--[hash].[ext]')
         }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         type: "asset/resource",
         generator: {
-          filename: 'fonts/[name]--[hash].[ext]'
+          filename: utils.assetsPath('fonts/[name]--[hash].[ext]')
         }
       },
       {
-        test: /\.ts[x]?$/,
+        test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: [
           'thread-loader',
@@ -66,11 +64,16 @@ let rendererConfig = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: utils.assetsPath('css/[name].[chunkhash:8].css'),
+      filename: 'css/[name].[chunkhash:8].css',
       chunkFilename: utils.assetsPath('css/[id].[chunkhash:8].css')
     }),
+    ...moduleFederation,
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      process: {
+        env: {
+          YP_ENV: JSON.stringify(process.env.YP_ENV),
+        }
+      }
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -81,7 +84,6 @@ let rendererConfig = {
         removeAttributeQuotes: true//移除分号
       }
     }),
-    ...moduleFederation,
     new webpack.NoEmitOnErrorsPlugin()
   ]
 }

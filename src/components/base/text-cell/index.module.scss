@@ -1,0 +1,15 @@
+.text-cell {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  &-content {
+      flex: 1;
+      font-size: 14px;
+      color: #323233;
+  }
+  &-name {
+     font-size: 16px;
+     font-size: 14px;
+     color: #323233;
+  }
+}

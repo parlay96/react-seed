@@ -1,21 +1,23 @@
 /*
- * @Author: penglei
- * @Date: 2022-05-26 00:09:33
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-28 16:15:44
+ * @Date: 2022-05-28 16:15:38
  * @Description:
  */
-
-import React from 'react'
-import Home from '@/pages/home'
-import '@/assets/styles/globals.scss'
+import * as React from 'react'
+import { BrowserRouter } from "react-router-dom"
 import { createRoot } from 'react-dom/client'
+import "@/config/interceptor"
+
+import { Provider, store } from '@/store'
+import App from './App'
+import '@/assets/styles/globals.scss'
 
 const container = document.getElementById('App')
 const root = createRoot(container)
 
 root.render(
-  <div style={{ width: '100%', height: '100%' }}>
-    <Home />
-  </div>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
 )

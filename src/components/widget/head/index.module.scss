@@ -1,0 +1,68 @@
+.headBox {
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+   z-index: 999;
+   height: 46px;
+   padding-left: 16px;
+   background-color: white;
+   @include flex-r;
+   justify-content: space-between;
+   .navBox {
+     width: 60%;
+     @include flex-r;
+     align-items: center;
+   }
+   .logo {
+      width: 32px;
+      height: 32px;
+      overflow: hidden;
+      background-color: aqua;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+   }
+   .navGroup {
+     @include flex-r;
+     padding-left: 5px;
+     height: 100%;
+   }
+   .navItem {
+     padding: 0 15px;
+     font-size: 14px;
+     cursor: pointer;
+     font-weight: 400;
+     display: flex;
+     align-items: center;
+     color: #323233;
+   }
+   .navItemLine {
+     position: relative;
+     font-weight: bold;
+     color: #5290FD;
+     &::after {
+       position: absolute;
+       content: '';
+       display: block;
+       width: 80%;
+       height: 3px;
+       bottom: -7px;
+       left: 10%;
+       background: #5290FD;
+       border-radius: 2px;
+     }
+   }
+   .navOther {
+    @include flex-r;
+    align-items: center;
+    .otherItem {
+      color: #8A8A99;
+     }
+     .text {
+       padding-left: 5px;
+     }
+   }
+}

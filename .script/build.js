@@ -2,12 +2,9 @@
  * @Author: penglei
  * @Date: 2022-05-25 20:47:23
  * @LastEditors: pl
- * @LastEditTime: 2022-05-30 17:45:42
+ * @LastEditTime: 2022-05-31 11:51:22
  * @Description: 打包脚本
  */
-// 当前环境
-process.env.NODE_ENV = 'production'
-
 const del = require('del')
 const webpack = require('webpack')
 const chalk = require('chalk')
@@ -18,7 +15,7 @@ const rendererConfig = require('./renderer/webpack.prod')
 // 删除文件
 async function clean() {
    // 删除web目录
-  del.sync(['dist/web'])
+  del.sync(['dist/**'])
 }
 
 // 打包

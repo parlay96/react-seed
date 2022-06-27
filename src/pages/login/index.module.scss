@@ -1,0 +1,55 @@
+.login {
+  background: url("https://p1-hera.byteimg.com/tos-cn-i-jbbdkfciu3/5e05fbef5ce04effad3cd37b05fba324~tplv-jbbdkfciu3-png:0:0.png") center center no-repeat;
+  background-size: cover;
+  padding-top: 80px;
+  padding-right: 110px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wrap {
+  width: 600px;
+  height: 690px;
+  border-radius: 12px;
+  background-color: #fff;
+  text-align: center;
+
+  .back {
+    margin-left: 40px;
+    margin-top: 58px;
+    text-align: left;
+  }
+
+  .title {
+    margin-top: 38px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .content {
+    margin: 0 40px;
+    margin-top: 60px;
+  }
+
+  .input-box {
+    width: 100%;
+    height: 56px;
+    &:first-of-type {
+      margin-bottom: 25px;
+    }
+  }
+  .input {
+    width: 100%;
+    height: 56px;
+    padding-left: 15px;
+  }
+  .footer {
+    margin: 40px;
+    .submit {
+      width: 100%;
+      height: 56px;
+      border-radius: 8px;
+    }
+  }
+}

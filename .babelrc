@@ -1,20 +1,15 @@
 {
   "comments": false, // 不产生注释
-  "env": {
-    "web": {
-      "presets": [
-        "@babel/preset-react",
-        [
-          "@babel/preset-env",
-          {
-            "modules": false
-          }
-        ],
-        "@babel/preset-typescript"
-      ],
-      "plugins":[]
-    }
-  },
+  "presets": [
+    "@babel/preset-react",
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
   "plugins": [
     "@babel/transform-runtime",
     "@babel/plugin-syntax-dynamic-import"

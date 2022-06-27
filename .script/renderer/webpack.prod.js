@@ -1,8 +1,8 @@
 /*
  * @Author: pl
  * @Date: 2022-05-30 11:05:10
- * @LastEditors: pl
- * @LastEditTime: 2022-05-30 17:41:35
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-06-02 11:46:45
  * @Description: file content
  * @FilePath: \yp-pc\.script\renderer\webpack.prod.js
  */
@@ -16,6 +16,12 @@ const webpackConfig = require('./webpack.common')
 
 module.exports = merge(webpackConfig, {
   mode: 'production',
+  output: {
+    publicPath: '/',
+    path: utils.resolve('/dist'), //输出文件夹
+    filename: utils.assetsPath('js/[name].[chunkhash:8].js'),//输出文件命名规则
+    chunkFilename: utils.assetsPath('js/[id].[chunkhash:8].js'), // 此选项决定了非初始（non-initial）chunk 文件的名称。
+  },
   optimization: {
     minimize: true, // 插件压缩
     minimizer: [
@@ -65,7 +71,7 @@ module.exports = merge(webpackConfig, {
       patterns: [
         {
           from: utils.resolve('static'),
-          to: utils.resolve(`dist/web/static`),
+          to: utils.resolve(`dist/static`),
           globOptions: {
             ignore: ['.*']
           }
